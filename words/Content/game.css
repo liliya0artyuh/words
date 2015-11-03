@@ -1,0 +1,35 @@
+﻿body {
+    background-color: grey;
+}
+
+
+#game {
+    width: 644px;
+    height: 484px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#gameTitle {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0 20px 0;
+    color: white;
+}
+
+canvas {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+
+#txtName {
+    position: absolute;
+    top: 210px;
+    right: 180px;
+    z-index: 101;
+    width: 150px;
+    height: 20px;
+}
