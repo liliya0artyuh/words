@@ -8,6 +8,7 @@
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
 /// <reference path="../config/config.ts" />
+/// <reference path="../objects/background.ts" />
 
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
@@ -37,7 +38,7 @@ var outcome: number;
 //manifest of all of the assets
 var manifest= [
     { id: "againButton", src: "../../Assets/images/againButton.png" },
-    { id: "attackButton", src: "../../Assets/images/attackButton.png" },
+    { id: "back", src: "../../Assets/images/back_long.png" },
     { id: "deadButton", src: "../../Assets/images/deadButton.png" },
     { id: "drinkButton", src: "../../Assets/images/drinkButton.png" },
     { id: "eatButton", src: "../../Assets/images/eatButton.png" },
