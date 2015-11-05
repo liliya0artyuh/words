@@ -75,6 +75,7 @@
     <Content Include="Assets\images\back_long.png" />
     <Content Include="Assets\images\saveButton.png" />
     <Content Include="Assets\images\startButton.PNG" />
+    <Content Include="Assets\images\truck.PNG" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">

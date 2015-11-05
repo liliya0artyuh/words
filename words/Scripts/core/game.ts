@@ -9,6 +9,7 @@
 
 /// <reference path="../config/config.ts" />
 /// <reference path="../objects/background.ts" />
+/// <reference path="../objects/truck.ts" />
 
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
@@ -39,7 +40,7 @@ var outcome: number;
 var manifest= [
     { id: "againButton", src: "../../Assets/images/againButton.png" },
     { id: "back", src: "../../Assets/images/back_long.png" },
-    { id: "deadButton", src: "../../Assets/images/deadButton.png" },
+    { id: "truck", src: "../../Assets/images/truck.png" },
     { id: "drinkButton", src: "../../Assets/images/drinkButton.png" },
     { id: "eatButton", src: "../../Assets/images/eatButton.png" },
     { id: "feedButton", src: "../../Assets/images/feedButton.png" },
