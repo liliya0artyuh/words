@@ -9,6 +9,7 @@
 
 /// <reference path="../config/config.ts" />
 /// <reference path="../objects/background.ts" />
+/// <reference path="../objects/word.ts" />
 /// <reference path="../objects/truck.ts" />
 
 /// <reference path="../objects/label.ts" />

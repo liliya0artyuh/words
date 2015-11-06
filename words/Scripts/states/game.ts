@@ -9,6 +9,7 @@ module states {
         _rightButton: objects.Button;
         _dragon_cave: createjs.Bitmap;
         _truck: objects.Truck;
+        _word: objects.Word;
 
         //constructor
         constructor() {
@@ -27,6 +28,10 @@ module states {
             this._truck = new objects.Truck("truck");
             this.addChild(this._truck);
 
+            //add words
+            this._word = new objects.Word();
+            this.addChild(this._word);
+
             //add all objects to the stage
             stage.addChild(this);
         }
@@ -34,6 +39,7 @@ module states {
         public update(): void {
             this._background.update();
             this._truck.update();
+            this._word.update();
         }
     }
 }
