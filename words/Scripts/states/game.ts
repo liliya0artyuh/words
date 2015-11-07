@@ -10,6 +10,7 @@ module states {
         _dragon_cave: createjs.Bitmap;
         _truck: objects.Truck;
         _word: objects.Word;
+        _antiWord: objects.Word;
 
         //constructor
         constructor() {
@@ -29,8 +30,12 @@ module states {
             this.addChild(this._truck);
 
             //add words
-            this._word = new objects.Word();
+            this._word = new objects.Word();// collectibe word
             this.addChild(this._word);
+
+            //add words
+            this._antiWord = new objects.Word();// antogonist words
+            this.addChild(this._antiWord);
 
             //add all objects to the stage
             stage.addChild(this);

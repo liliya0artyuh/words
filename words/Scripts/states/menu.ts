@@ -16,7 +16,6 @@ module states {
         //private method
         //callback function that allows to respond to button click events
         private _buttonClicked(event: createjs.MouseEvent): void {
-
             createjs.Sound.play("soundtrack");
             //get the name of user
             name = (<HTMLInputElement>document.getElementById("txtName")).value;
@@ -42,8 +41,6 @@ module states {
 
             document.getElementById("txtName").style.display = "inline";
             console.log(name);
-
-
 
             this._introLabel = new objects.Label(" Do you want to play?", "40px Consolas", "#000000", 320, 260);
             this.addChild(this._introLabel);

@@ -6,49 +6,76 @@
         width: number;
         height: number;
         dx: number = 1;
+        nextItem: number = 0;
+        currentWord: string;
 
         category: string;
 
-        //foodWords = new String["apple", "potato", "onion", "pear", "rice", "bread", "beef", "cheese", "milk", "juice"];
-        //furnitureWords = new String["chair", "desk", "bookshelf", "sofa", "table", "lamp", "bed", "mirror", "carpet", "TV"];
-        //clothesWords = new String["dress", "shorts", "shirt", "skirt", "pants", "hat", "scarf", "suit", "tie", "socks"];
-        //animalsWords = new String["dog", "cat", "caw", "elephant", "sheep", "horse", "pig", "bear", "fox", "wolf"];
+         //word sets
+     foodWords: string[] = ["apple", "potato", "onion", "pear", "rice", "bread", "beef", "cheese", "milk", "juice"];
+
+     furnitureWords: string[] = ["chair", "desk", "bookshelf", "sofa", "table", "lamp", "bed", "mirror", "carpet", "TV"];
+     clothesWords: string[] = ["dress", "shorts", "shirt", "skirt", "pants", "hat", "scarf", "suit", "tie", "socks"];
+     animalsWords: string[] = ["dog", "cat", "caw", "elephant", "sheep", "horse", "pig", "bear", "fox", "wolf"];
+
+
 
         //CONSTRUCTOR --------------------------------------------------
         constructor() {
-            super("apple", "12px Consolas", "green");
+            super("placeholder", "30px Consolas", "green");
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
           //  this.regX = this.width * 0.5;
             //this.regY = this.height * 0.5;
             this.x = 848;
             this.y = 10;
-          //  this._reset();
+            this.determineNextWord();
+            this._reset();
         }
 
 
         //PRIVATE METHODS --------------------------------------------------------
+        //checks if word left the screen and if so calls functions to reset word to new word
         private _checkBounds(): void {
-            //check if island has left the screen
-            if (this.y > 480 + this.height) {
+            //check if word has left the screen
+            if (this.x < 0) {
+                this.determineNextWord();
                 this._reset();
             }
         }
 
-        private getWord(): string {
-            this.category = "food";
+
+        //determines the next word
+        private determineNextWord(): void {
+            //determine next collectible word
+            this.nextItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+            this.currentWord = this.foodWords[this.nextItem];
+
+
+            //determine next antagonist word 
+            for (var antiWord; antiWord < 3; antiWord++) {
+                Math.floor(Math.random() * (10 - 0 + 1) + 0);
+            }
+
+        }
+
+
+        private getCategory(): string {
+            this.category = "category";
             return this.category;
         }
 
+        //resets the text of of the word and its positions
         private _reset(): void {
-            this.x = Math.floor(Math.random() * 640);// start island at random location
-            this.y = this.height;
+            this.text = this.currentWord;
+            this.y = Math.floor(Math.random() * 550);// start island at random location
+            this.x = 848;
         }
 
         //PUBLIC METHODS -----------------------------------------------------
         public update(): void {
             this.x -= this.dx;
-          //  this._checkBounds();
+           this._checkBounds();
         }
 
     }

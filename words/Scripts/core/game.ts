@@ -7,7 +7,9 @@
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../config/wordsets.ts" />
 /// <reference path="../config/config.ts" />
+
 /// <reference path="../objects/background.ts" />
 /// <reference path="../objects/word.ts" />
 /// <reference path="../objects/truck.ts" />
@@ -42,21 +44,9 @@ var manifest= [
     { id: "againButton", src: "../../Assets/images/againButton.png" },
     { id: "back", src: "../../Assets/images/back_long.png" },
     { id: "truck", src: "../../Assets/images/truck.png" },
-    { id: "drinkButton", src: "../../Assets/images/drinkButton.png" },
-    { id: "eatButton", src: "../../Assets/images/eatButton.png" },
-    { id: "feedButton", src: "../../Assets/images/feedButton.png" },
-    { id: "getOnButton", src: "../../Assets/images/getOnButton.png" },
-    { id: "leftButton", src: "../../Assets/images/leftButton.png" },
-    { id: "rightButton", src: "../../Assets/images/rightButton.png" },
-    { id: "saveButton", src: "../../Assets/images/saveButton.png" },
-    { id: "screamButton", src: "../../Assets/images/screamButton.png" },
-    { id: "sleepButton", src: "../../Assets/images/sleepButton.png" },
+    { id: "emptyButton", src: "../../Assets/images/button183x82.png" },
     { id: "startButton", src: "../../Assets/images/startButton.png" },
-    { id: "swimButton", src: "../../Assets/images/swimButton.png" },
-    { id: "swimByButton", src: "../../Assets/images/swimByButton.png" },
     { id: "soundtrack", src: "../../Assets/audio/gameSound.m4a" },
-    { id: "tooth", src: "../../Assets/images/tooth.jpg" },
-    { id: "dragon", src: "../../Assets/images/dragon_1.jpg" },
     { id: "logo", src: "../../Assets/images/logo_small.png" },
     { id: "sound1", src: "../../Assets/audio/0831.wav" }
 ];
