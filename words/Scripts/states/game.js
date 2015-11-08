@@ -12,8 +12,11 @@ var states;
         function Game() {
             _super.call(this);
             this._antiWords = [];
-            this._nextItem = 0;
+            //determines the next set of words
+            this._currentWordItem = 0;
+            this._antiWordItems = [];
             this._wordOrder = [0];
+            this._numOfAntiWords = 3;
         }
         //public methods
         Game.prototype.start = function () {
@@ -25,11 +28,11 @@ var states;
             this._truck = new objects.Truck("truck");
             this.addChild(this._truck);
             //add words
-            this._word = new objects.Word(this._currentWord); // collectibe word
+            this._word = new objects.Word(this._currentCategory[this._currentWordItem]); // collectibe word
             this.addChild(this._word);
             //add words
-            for (var antiWord = 0; antiWord < 3; antiWord++) {
-                this._antiWords[antiWord] = new objects.Word("enimy"); // antogonist words
+            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
+                this._antiWords[antiWord] = new objects.Word(this._antagonistWords[this._antiWordItems[antiWord]]); // antogonist words
                 this.addChild(this._antiWords[antiWord]);
             }
             //add all objects to the stage
@@ -69,14 +72,13 @@ var states;
         //determines the next word
         Game.prototype._determineNextWord = function () {
             //determine next collectible word
-            this._nextItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-            console.log(this._nextItem);
+            this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+            console.log(this._currentWordItem);
             //   this._checkIfExists(this.nextItem);
-            this._currentWord = this._currentCategory[this._nextItem];
             //determine next set of antagonist words 
-            this._antiWord1 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
-            this._antiWord2 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
-            this._antiWord3 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
+            for (var antiWordCounter = 0; antiWordCounter < this._numOfAntiWords; antiWordCounter++) {
+                this._antiWordItems[antiWordCounter] = (Math.floor(Math.random() * (30 - 0 + 1) + 0));
+            }
         };
         /*
         private _checkIfExists(x: number): number {
@@ -117,7 +119,7 @@ var states;
             this._background.update();
             this._truck.update();
             this._word.update();
-            for (var antiWord = 0; antiWord < 3; antiWord++) {
+            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
             }
         };
@@ -125,4 +127,3 @@ var states;
     })(objects.Scene);
     states.Game = Game;
 })(states || (states = {}));
-//# sourceMappingURL=game.js.map

@@ -9,13 +9,13 @@ var objects;
         __extends(Word, _super);
         //CONSTRUCTOR --------------------------------------------------
         function Word(word) {
-            _super.call(this, word, "30px Consolas", "green");
+            _super.call(this, word, "40px Consolas", "green");
             this._dx = 1;
             this.reset();
             // this._width = this.getBounds().width;
-            //this._height = this.getBounds().height;
-            this.x = 848;
-            this.y = 10;
+            ////this._height = this.getBounds().height;
+            //this.x = 848;
+            //this.y = 10;
         }
         //PRIVATE METHODS --------------------------------------------------------
         //checks if word left the screen and if so calls functions to reset word to new word
@@ -28,7 +28,8 @@ var objects;
         //PUBLIC METHODS ---------------------------------------------------------
         //resets the text of of the word and its positions
         Word.prototype.reset = function () {
-            this.y = Math.floor(Math.random() * 500); // start word at random location
+            this._dx = (Math.random() * (1.5 - 0.5 + 0.5) + 0.5); //sets random speed between 1 and 2
+            this.y = Math.floor(Math.random() * 450); // start word at random location
             this.x = 848;
         };
         Word.prototype.update = function () {
@@ -39,4 +40,3 @@ var objects;
     })(createjs.Text);
     objects.Word = Word;
 })(objects || (objects = {}));
-//# sourceMappingURL=word.js.map

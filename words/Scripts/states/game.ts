@@ -10,17 +10,18 @@ module states {
         _dragon_cave: createjs.Bitmap;
         _truck: objects.Truck;
         _word: objects.Word;
-        _antiWords: objects.Word[]=[];
-        _nextItem: number = 0;
+        _antiWords: objects.Word[] = [];
+
+        //determines the next set of words
+        _currentWordItem: number = 0;
+        _antiWordItems: number[] = [];
         _currentWord: string;
         _wordOrder: number[] = [0];
         _category: string;
         _numExists: boolean;
         _currentCategory: string[];
         _antagonistWords: string[];
-        _antiWord1: string;
-        _antiWord2: string;
-        _antiWord3: string;
+        _numOfAntiWords: number = 3;
 
 
 
@@ -44,12 +45,12 @@ module states {
             this.addChild(this._truck);
 
             //add words
-            this._word = new objects.Word(this._currentWord);// collectibe word
+            this._word = new objects.Word(this._currentCategory[this._currentWordItem]);// collectibe word
             this.addChild(this._word);
 
             //add words
-            for (var antiWord = 0; antiWord < 3; antiWord++) {
-                this._antiWords[antiWord] = new objects.Word("enimy");// antogonist words
+            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
+                this._antiWords[antiWord] = new objects.Word(this._antagonistWords[this._antiWordItems[antiWord]]);// antogonist words
                 this.addChild(this._antiWords[antiWord]);
             }
 
@@ -91,16 +92,16 @@ module states {
         //determines the next word
         private _determineNextWord(): void {
             //determine next collectible word
-            this._nextItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-            console.log(this._nextItem);
+            this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+            console.log(this._currentWordItem);
             //   this._checkIfExists(this.nextItem);
-            this._currentWord = this._currentCategory[this._nextItem];
+            
 
 
             //determine next set of antagonist words 
-            this._antiWord1 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
-            this._antiWord2 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
-            this._antiWord3 = this._antagonistWords[Math.floor(Math.random() * (30 - 0 + 1) + 0)];
+            for (var antiWordCounter = 0; antiWordCounter < this._numOfAntiWords; antiWordCounter++) {
+                this._antiWordItems[antiWordCounter] = (Math.floor(Math.random() * (30 - 0 + 1) + 0));
+            }
 
         }
 
@@ -149,7 +150,7 @@ module states {
             this._background.update();
             this._truck.update();
             this._word.update();
-            for (var antiWord = 0; antiWord < 3; antiWord++) {
+            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
             }
         }

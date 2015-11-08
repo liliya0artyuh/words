@@ -9,12 +9,12 @@
 
         //CONSTRUCTOR --------------------------------------------------
         constructor(word: string) {
-            super(word, "30px Consolas", "green");
+            super(word, "40px Consolas", "green");
             this.reset();
            // this._width = this.getBounds().width;
-            //this._height = this.getBounds().height;
-            this.x = 848;
-            this.y = 10;
+            ////this._height = this.getBounds().height;
+            //this.x = 848;
+            //this.y = 10;
         }
 
 
@@ -33,7 +33,8 @@
         //PUBLIC METHODS ---------------------------------------------------------
         //resets the text of of the word and its positions
         public reset(): void {
-            this.y = Math.floor(Math.random() * 500);// start word at random location
+            this._dx = (Math.random() * (1.5 - 0.5 + 0.5) + 0.5);//sets random speed between 1 and 2
+            this.y = Math.floor(Math.random() * 450);// start word at random location
             this.x = 848;
         }
 
