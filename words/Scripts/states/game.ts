@@ -12,6 +12,8 @@ module states {
         _word: objects.Word;
         _antiWord: objects.Word;
 
+
+
         //constructor
         constructor() {
             super();
@@ -30,12 +32,12 @@ module states {
             this.addChild(this._truck);
 
             //add words
-            this._word = new objects.Word();// collectibe word
+            this._word = new objects.Word("food");// collectibe word
             this.addChild(this._word);
 
             //add words
-            this._antiWord = new objects.Word();// antogonist words
-            this.addChild(this._antiWord);
+          //  this._antiWord = new objects.Word();// antogonist words
+          //  this.addChild(this._antiWord);
 
             //add all objects to the stage
             stage.addChild(this);

@@ -81,7 +81,7 @@ module states {
             this._logo.y = 140;
             this.addChild(this._logo);
 
-            this._outcomeLabel = new objects.Label( this._outcomeText, "12px Consolas", "#000000", 320, 160);
+            this._outcomeLabel = new objects.Label( this._outcomeText, "12px Consolas", "#000000", 320, 160, true);
             this.addChild(this._outcomeLabel);
 
 
@@ -95,10 +95,10 @@ module states {
                 this.addChild(this._tooth);
             }
 
-            this._endLabel = new objects.Label("The End", "30px Consolas", "#000000", 320, 280);
+            this._endLabel = new objects.Label("The End", "30px Consolas", "#000000", 320, 280, true);
             this.addChild(this._endLabel);
             //instantiate and add a start button
-            this._againButton = new objects.Button("againButton", 300, 340);
+            this._againButton = new objects.Button("againButton", 300, 340, true);
             this.addChild(this._againButton);
             this._againButton.on("click", this._buttonClicked, this);
             stage.addChild(this);

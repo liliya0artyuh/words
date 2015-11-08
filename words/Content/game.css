@@ -5,7 +5,7 @@
 
 #game {
     width: 852px;
-    height: 554px;
+    height: 504px;
     margin: 0 auto;
     position: relative;
 }
@@ -27,8 +27,9 @@ canvas {
 
 #txtName {
     position: absolute;
-    top: 210px;
-    right: 180px;
+    display: none;
+    top: 110px;
+    right: 300px;
     z-index: 101;
     width: 150px;
     height: 20px;

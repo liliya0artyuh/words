@@ -37,6 +37,7 @@ var game: states.Game;
 var over: states.Over;
 var name: string;
 var outcome: number;
+var wordCategory: string;
 
 
 //manifest of all of the assets
@@ -47,7 +48,7 @@ var manifest= [
     { id: "emptyButton", src: "../../Assets/images/button183x82.png" },
     { id: "startButton", src: "../../Assets/images/startButton.png" },
     { id: "soundtrack", src: "../../Assets/audio/gameSound.m4a" },
-    { id: "logo", src: "../../Assets/images/logo_small.png" },
+    { id: "logo", src: "../../Assets/images/logo.png" },
     { id: "sound1", src: "../../Assets/audio/0831.wav" }
 ];
 
@@ -60,7 +61,7 @@ function preload(): void {
     assets.loadManifest(manifest);
     (<HTMLInputElement>document.getElementById("txtName")).value = "";
     name = "";
-    document.getElementById("txtName").style.display = "inline";
+   // document.getElementById("txtName").style.display = "none";
 }
 
 function init(): void {

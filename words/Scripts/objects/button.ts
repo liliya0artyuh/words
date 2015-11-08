@@ -4,18 +4,19 @@
         width: number;
         height: number;
         //constructor
-        constructor(pathString: string, x: number, y: number) {
+        constructor(pathString: string, x: number, y: number, centered: boolean) {
             super(assets.getResult(pathString));
 
             this.x = x;
             this.y = y;
 
-            this.width = 150;
-            this.height = 50;
+            if (centered) {
+                this.width = 208;
+                this.height = 69;
 
-            this.regX = this.width * 0.5;
-            this.regY = this.height * 0.5;
-
+                this.regX = this.width * 0.5;
+                this.regY = this.height * 0.5;
+            }
             this.on("mouseover", this.buttonOver, this);
             this.on("mouseout", this.buttonOut, this);
 
@@ -30,6 +31,8 @@
         buttonOut(event: createjs.MouseEvent): void {
             event.currentTarget.alpha = 1.0;
         }
+
+        
 
     }
 }
