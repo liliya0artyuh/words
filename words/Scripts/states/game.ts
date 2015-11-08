@@ -9,16 +9,14 @@ module states {
         _word: objects.Word;
         _antiWords: objects.Word[] = [];
 
-        //determines the next set of words
-        _currentWordItem: number = 0;
-        _antiWordItems: number[] = [];
+
         _currentWord: string;
         _wordOrder: number[] = [0];
         _category: string;
         _numExists: boolean;
         _currentCategory: string[];
         _antagonistWords: string[];
-        _numOfAntiWords: number = 3;
+
 
 
 
@@ -30,8 +28,7 @@ module states {
 
         //public methods
         public start(): void {
-            functions.determineCategories();
-            functions.determineNextWord();
+            this._determineCategories();
 
 
             this._background = new objects.Background("back");
@@ -42,13 +39,15 @@ module states {
             this.addChild(this._truck);
 
             //add words
-            this._word = new objects.Word(this._currentCategory[this._currentWordItem]);// collectibe word
+            this._word = new objects.Word(true);// collectibe word
             this.addChild(this._word);
+            //config.currentCategory[this._currentWordItem]
 
             //add words
-            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
-                this._antiWords[antiWord] = new objects.Word(config.antagonistWords[this._antiWordItems[antiWord]]);// antogonist words
+            for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
+                this._antiWords[antiWord] = new objects.Word(false);// antogonist words
                 this.addChild(this._antiWords[antiWord]);
+                //config.antagonistWords[this._antiWordItems[antiWord]]
             }
 
             //add all objects to the stage
@@ -119,32 +118,14 @@ module states {
         }
     }
 
-    //determines the next word
-    private _determineNextWord(): void {
-        //determine next collectible word
-        this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-        console.log(this._currentWordItem);
-        //   this._checkIfExists(this.nextItem);
-
-        //determine next set of antagonist words 
-        for (var antiWordCounter = 0; antiWordCounter < this._numOfAntiWords; antiWordCounter++) {
-            this._antiWordItems[antiWordCounter] = (Math.floor(Math.random() * (30 - 0 + 1) + 0));
-        }
-    }
-
-
-        public reset(): void {
-            functions.determineNextWord();
-            this._word.text = this._currentWord;
-        }
-
+        
 
 
         public update(): void {
             this._background.update();
             this._truck.update();
             this._word.update();
-            for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
+            for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
             }
         }
