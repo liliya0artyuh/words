@@ -11,8 +11,8 @@
         constructor(word: string) {
             super(word, "30px Consolas", "green");
             this.reset();
-            this._width = this.getBounds().width;
-            this._height = this.getBounds().height;
+           // this._width = this.getBounds().width;
+            //this._height = this.getBounds().height;
             this.x = 848;
             this.y = 10;
         }

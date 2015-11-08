@@ -10,7 +10,7 @@ module states {
         _dragon_cave: createjs.Bitmap;
         _truck: objects.Truck;
         _word: objects.Word;
-        _antiWord: objects.Word;
+        _antiWords: objects.Word[]=[];
         _nextItem: number = 0;
         _currentWord: string;
         _wordOrder: number[] = [0];
@@ -28,6 +28,35 @@ module states {
         constructor() {
             super();
         }
+
+
+        //public methods
+        public start(): void {
+            this._determineCategories();
+            this._determineNextWord();
+
+
+            this._background = new objects.Background("back");
+            this.addChild(this._background);
+
+            //add truck to the game
+            this._truck = new objects.Truck("truck");
+            this.addChild(this._truck);
+
+            //add words
+            this._word = new objects.Word(this._currentWord);// collectibe word
+            this.addChild(this._word);
+
+            //add words
+            for (var antiWord = 0; antiWord < 3; antiWord++) {
+                this._antiWords[antiWord] = new objects.Word("enimy");// antogonist words
+                this.addChild(this._antiWords[antiWord]);
+            }
+
+            //add all objects to the stage
+            stage.addChild(this);
+        }
+
 
         //private method
         //determine categories for collectible words and the antagonist words
@@ -114,35 +143,15 @@ module states {
             this._word.text = this._currentWord;
         }
 
-        //public methods
-        public start(): void {
-            this._determineCategories();
-            this._determineNextWord();
 
-
-            this._background = new objects.Background("back");
-            this.addChild(this._background);
-
-            //add truck to the game
-            this._truck = new objects.Truck("truck");
-            this.addChild(this._truck);
-
-            //add words
-            this._word = new objects.Word(this._currentWord);// collectibe word
-            this.addChild(this._word);
-
-            //add words
-          //  this._antiWord = new objects.Word();// antogonist words
-          //  this.addChild(this._antiWord);
-
-            //add all objects to the stage
-            stage.addChild(this);
-        }
 
         public update(): void {
             this._background.update();
             this._truck.update();
             this._word.update();
+            for (var antiWord = 0; antiWord < 3; antiWord++) {
+                this._antiWords[antiWord].update();
+            }
         }
     }
 }
