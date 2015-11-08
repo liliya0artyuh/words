@@ -33,12 +33,11 @@ module states {
         }
 
         private _categoryClicked(event: createjs.MouseEvent): void {
-            console.log("event.target " + event.target);
-            wordCategory = event.target;
+            wordCategory = event.target.name;
             //get the name of user
             name = (<HTMLInputElement>document.getElementById("txtName")).value;
             if (name == null || name == "") {
-                name = "Pin";
+                name = "YOU";
             }
             console.log("check name after button is clicked " + name);
             document.getElementById("txtName").style.display = "none";
@@ -50,13 +49,11 @@ module states {
         public start(): void {
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.getResult("logo"));
-
             this._logo.x = this._centerX;//place in the middle along x axis
             this._logo.y = 50;
-
             //set regX so image is centered along x axis
             this._logo.regX = 292 * 0.5;
-//add logo to game container
+            //add logo to game container
             this.addChild(this._logo);
 
 

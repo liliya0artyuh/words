@@ -61,7 +61,6 @@ function preload(): void {
     assets.loadManifest(manifest);
     (<HTMLInputElement>document.getElementById("txtName")).value = "";
     name = "";
-   // document.getElementById("txtName").style.display = "none";
 }
 
 function init(): void {
