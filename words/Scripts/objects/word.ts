@@ -21,13 +21,6 @@
         //PRIVATE METHODS --------------------------------------------------------
       
 
-        //checks if word left the screen and if so calls functions to reset word to new word
-        private _checkBounds(): void {
-            //check if word has left the screen
-            if (this.x < 0) {
-                this.reset();
-            }
-        }
 
 
         //PUBLIC METHODS ---------------------------------------------------------
@@ -39,9 +32,17 @@
         }
 
 
+        //checks if word left the screen and if so calls functions to reset word to new word
+        public checkBounds(): void {
+            //check if word has left the screen
+            if (this.x < 0) {
+                this.reset();
+            }
+        }
+
         public update(): void {
             this.x -= this._dx;
-           this._checkBounds();
+           this.checkBounds();
         }
 
     }

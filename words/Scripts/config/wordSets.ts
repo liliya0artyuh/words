@@ -6,4 +6,6 @@
     export var furnitureWords: string[] = ["chair", "desk", "bookshelf", "sofa", "table", "lamp", "bed", "mirror", "carpet", "TV"];
     export var clothesWords: string[] = ["dress", "shorts", "shirt", "skirt", "pants", "hat", "scarf", "suit", "tie", "socks"];
     export var animalsWords: string[] = ["dog", "cat", "caw", "elephant", "sheep", "horse", "pig", "bear", "fox", "wolf"];
+    export var currentCategory: string[] = [];
+    export var antagonistWords: string[] = [];
 }

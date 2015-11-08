@@ -5,9 +5,6 @@ module states {
         // private instance variables
         _background: objects.Background;
         _textLabel: objects.Label;
-        _leftButton: objects.Button;
-        _rightButton: objects.Button;
-        _dragon_cave: createjs.Bitmap;
         _truck: objects.Truck;
         _word: objects.Word;
         _antiWords: objects.Word[] = [];
@@ -33,8 +30,8 @@ module states {
 
         //public methods
         public start(): void {
-            this._determineCategories();
-            this._determineNextWord();
+            functions.determineCategories();
+            functions.determineNextWord();
 
 
             this._background = new objects.Background("back");
@@ -50,7 +47,7 @@ module states {
 
             //add words
             for (var antiWord = 0; antiWord < this._numOfAntiWords; antiWord++) {
-                this._antiWords[antiWord] = new objects.Word(this._antagonistWords[this._antiWordItems[antiWord]]);// antogonist words
+                this._antiWords[antiWord] = new objects.Word(config.antagonistWords[this._antiWordItems[antiWord]]);// antogonist words
                 this.addChild(this._antiWords[antiWord]);
             }
 
@@ -60,50 +57,7 @@ module states {
 
 
         //private method
-        //determine categories for collectible words and the antagonist words
-        private _determineCategories(): void {
-            console.log("wordCategory " + wordCategory);
-            if (wordCategory == "foodBtn") {
-                this._currentCategory = config.foodWords;
-                this._antagonistWords = config.furnitureWords;
-                Array.prototype.push.apply(this._antagonistWords, config.clothesWords);
-                Array.prototype.push.apply(this._antagonistWords, config.animalsWords);
-                console.log("this._currentCategory " + this._currentCategory);
-                console.log("this._antagonistWords " + this._antagonistWords);
-            } else if (wordCategory == "furnitureBtn") {
-                this._currentCategory = config.furnitureWords;
-                this._antagonistWords = config.foodWords;
-                Array.prototype.push.apply(this._antagonistWords, config.clothesWords);
-                Array.prototype.push.apply(this._antagonistWords, config.animalsWords);
-            } else if (wordCategory == "clothesBtn") {
-                this._currentCategory = config.clothesWords;
-                this._antagonistWords = config.furnitureWords;
-                Array.prototype.push.apply(this._antagonistWords, config.foodWords);
-                Array.prototype.push.apply(this._antagonistWords, config.animalsWords);
-            } else if (wordCategory == "animalsBtn") {
-                this._currentCategory = config.animalsWords;
-                this._antagonistWords = config.furnitureWords;
-                Array.prototype.push.apply(this._antagonistWords, config.clothesWords);
-                Array.prototype.push.apply(this._antagonistWords, config.foodWords);
-            }
-        }
 
-
-        //determines the next word
-        private _determineNextWord(): void {
-            //determine next collectible word
-            this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-            console.log(this._currentWordItem);
-            //   this._checkIfExists(this.nextItem);
-            
-
-
-            //determine next set of antagonist words 
-            for (var antiWordCounter = 0; antiWordCounter < this._numOfAntiWords; antiWordCounter++) {
-                this._antiWordItems[antiWordCounter] = (Math.floor(Math.random() * (30 - 0 + 1) + 0));
-            }
-
-        }
 
 
         /*
@@ -137,10 +91,50 @@ module states {
             return this.nextItem;
         }
         */
+                    //determine categories for collectible words and the antagonist words
+     private  _determineCategories(): void {
+        console.log("wordCategory " + wordCategory);
+        if (wordCategory == "foodBtn") {
+            config.currentCategory = config.foodWords;
+            config.antagonistWords = config.furnitureWords;
+            Array.prototype.push.apply(config.antagonistWords, config.clothesWords);
+            Array.prototype.push.apply(config.antagonistWords, config.animalsWords);
+            console.log("this._currentCategory " + config.currentCategory);
+            console.log("this._antagonistWords " + config.antagonistWords);
+        } else if (wordCategory == "furnitureBtn") {
+            config.currentCategory = config.furnitureWords;
+            config.antagonistWords = config.foodWords;
+            Array.prototype.push.apply(config.antagonistWords, config.clothesWords);
+            Array.prototype.push.apply(config.antagonistWords, config.animalsWords);
+        } else if (wordCategory == "clothesBtn") {
+            config.currentCategory = config.clothesWords;
+            config.antagonistWords = config.furnitureWords;
+            Array.prototype.push.apply(config.antagonistWords, config.foodWords);
+            Array.prototype.push.apply(config.antagonistWords, config.animalsWords);
+        } else if (wordCategory == "animalsBtn") {
+            config.currentCategory = config.animalsWords;
+            config.antagonistWords = config.furnitureWords;
+            Array.prototype.push.apply(config.antagonistWords, config.clothesWords);
+            Array.prototype.push.apply(config.antagonistWords, config.foodWords);
+        }
+    }
+
+    //determines the next word
+    private _determineNextWord(): void {
+        //determine next collectible word
+        this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+        console.log(this._currentWordItem);
+        //   this._checkIfExists(this.nextItem);
+
+        //determine next set of antagonist words 
+        for (var antiWordCounter = 0; antiWordCounter < this._numOfAntiWords; antiWordCounter++) {
+            this._antiWordItems[antiWordCounter] = (Math.floor(Math.random() * (30 - 0 + 1) + 0));
+        }
+    }
 
 
         public reset(): void {
-            this._determineNextWord();
+            functions.determineNextWord();
             this._word.text = this._currentWord;
         }
 

@@ -8,6 +8,7 @@
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
 /// <reference path="../config/wordsets.ts" />
+/// <reference path="../functions/methods.ts" />
 /// <reference path="../config/config.ts" />
 
 /// <reference path="../objects/background.ts" />
