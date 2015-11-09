@@ -5,5 +5,6 @@ var config;
     config.PLAY_STATE = 1;
     config.OVER_STATE = 2;
     config.numOfAntiWords = 3;
+    config.centerX = 424;
 })(config || (config = {}));
 //# sourceMappingURL=config.js.map

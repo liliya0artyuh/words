@@ -17,8 +17,7 @@ var states;
         //public methods
         Game.prototype.start = function () {
             this._determineCategories();
-            this._background = new objects.Background("back");
-            this.addChild(this._background);
+            this.addChild(background);
             //add truck to the game
             this._truck = new objects.Truck("truck");
             this.addChild(this._truck);
@@ -99,7 +98,6 @@ var states;
             }
         };
         Game.prototype.update = function () {
-            this._background.update();
             this._truck.update();
             this._word.update();
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
@@ -108,6 +106,14 @@ var states;
             }
             collision.check(this._word, this._truck);
             scoreboard.update();
+            if (scoreboard.lives <= 0) {
+                outcome = 2;
+                changeState(config.OVER_STATE);
+            }
+            if (scoreboard.score == 1000) {
+                outcome = 1;
+                changeState(config.OVER_STATE);
+            }
         };
         return Game;
     })(objects.Scene);

@@ -10,14 +10,14 @@ var objects;
         //CONSTRUCTOR --------------------------------------------------
         function Word(curWord) {
             _super.call(this, "placeholder", "40px Consolas", "green");
+            this.isColliding = false;
+            this.sound = "";
+            this.name = "";
+            //PRIVATE PROPERTIES
             this._dx = 1;
             //determines the next set of words
             this._currentWordItem = 0;
             this._antiWordItem = 0;
-            this._currentWord = true;
-            this.isColliding = false;
-            this.sound = "";
-            this.name = "";
             //check if the word is enemy or hero
             if (curWord) {
                 this._currentWord = true; //hero
@@ -34,15 +34,20 @@ var objects;
         //PRIVATE METHODS --------------------------------------------------------
         //determines the next word
         Word.prototype._determineNextWord = function () {
-            //determine next collectible word
+            //determine next collectible word (out of 10)
             if (this._currentWord) {
                 this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 0) + 0);
-                console.log(this._currentWordItem);
             }
             else {
-                //determine next set of antagonist words 
-                //           for (var antiWordCounter = 0; antiWordCounter < config.numOfAntiWords; antiWordCounter++) {
+                //determine next antagonist word (out of 30)
                 this._antiWordItem = Math.floor(Math.random() * (30 - 0 + 0) + 0);
+            }
+        };
+        //checks if word left the screen and if so calls functions to reset word to new word
+        Word.prototype._checkBounds = function () {
+            //check if word has left the screen
+            if (this.x < 0) {
+                this._reset();
             }
         };
         //PUBLIC METHODS ---------------------------------------------------------
@@ -61,13 +66,6 @@ var objects;
             this.x = 848;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-        };
-        //checks if word left the screen and if so calls functions to reset word to new word
-        Word.prototype._checkBounds = function () {
-            //check if word has left the screen
-            if (this.x < 0) {
-                this._reset();
-            }
         };
         Word.prototype.update = function () {
             this.x -= this._dx;

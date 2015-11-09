@@ -5,4 +5,5 @@
     export var PLAY_STATE: number = 1;
     export var OVER_STATE: number = 2;
     export var numOfAntiWords: number = 3;
+    export var centerX: number = 424;
 }

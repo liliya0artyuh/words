@@ -29,5 +29,10 @@
             this._livesLable.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;
         }
+
+        public reset() {
+            this.score = 0;
+            this.lives = 3;
+        }
     }
 }

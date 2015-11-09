@@ -20,6 +20,10 @@ var objects;
             this._livesLable.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;
         };
+        Scoreboard.prototype.reset = function () {
+            this.score = 0;
+            this.lives = 3;
+        };
         return Scoreboard;
     })();
     objects.Scoreboard = Scoreboard;

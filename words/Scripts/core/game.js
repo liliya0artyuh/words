@@ -10,7 +10,6 @@
 /// <reference path="../config/wordsets.ts" />
 /// <reference path="../config/config.ts" />
 /// <reference path="../managers/asset.ts" />
-/// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/background.ts" />
 /// <reference path="../objects/word.ts" />
 /// <reference path="../objects/truck.ts" />
@@ -33,8 +32,9 @@ var menu;
 var game;
 var over;
 var name;
-var outcome;
+var outcome = 0;
 var wordCategory;
+var background;
 //Game managers
 var assets;
 var collision;
@@ -51,6 +51,8 @@ function init() {
     stage.enableMouseOver(20); //enable mouse events
     createjs.Ticker.setFPS(60); // set frame rate to 60 frames per second
     createjs.Ticker.on("tick", gameLoop, this); // update gameLoop every frame
+    background = new objects.Background("back");
+    stage.addChild(background);
     setupStats(); // setup statistics object
     state = config.MENU_STATE;
     changeState(state);
@@ -58,6 +60,7 @@ function init() {
 // Main Game Loop
 function gameLoop(event) {
     stats.begin(); //begin measuring
+    background.update();
     currentState.update();
     stage.update(); // redraw/refresh stage every frame
     stats.end(); // end measuring

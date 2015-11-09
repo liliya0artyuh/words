@@ -29,7 +29,6 @@
                     } 
                     if (gameObject.name == "enemy") {
                         scoreboard.lives--;
-                        //if equals 3 lives then 
                     } 
                 }
                 gameObject.isColliding = true;

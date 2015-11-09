@@ -3,17 +3,18 @@
     export class Word extends createjs.Text {
 
         //PUBLIC PROPERTIES ----------------------------------------
-        width: number;
-        height: number;
+        public  width: number;
+        public  height: number;
+        public  isColliding: boolean = false;
+        public sound: string = "";
+        public name: string = "";
+
+        //PRIVATE PROPERTIES
         _dx: number = 1;
         //determines the next set of words
         _currentWordItem: number = 0;
         _antiWordItem: number = 0;
-        _currentWord = true;
-        isColliding: boolean = false;
-        sound: string = "";
-        public name: string = "";
-
+        _currentWord: boolean;
 
         //CONSTRUCTOR --------------------------------------------------
         constructor(curWord: boolean) {
@@ -33,20 +34,23 @@
 
 
         //PRIVATE METHODS --------------------------------------------------------
-
         //determines the next word
         private _determineNextWord(): void {
-            //determine next collectible word
+            //determine next collectible word (out of 10)
             if (this._currentWord) {
                 this._currentWordItem = Math.floor(Math.random() * (10 - 0 + 0) + 0);
-                console.log(this._currentWordItem);
-                //   this._checkIfExists(this.nextItem);
             } else{
-
-            //determine next set of antagonist words 
- //           for (var antiWordCounter = 0; antiWordCounter < config.numOfAntiWords; antiWordCounter++) {
+            //determine next antagonist word (out of 30)
                 this._antiWordItem = Math.floor(Math.random() * (30 - 0 + 0) + 0);
            }
+        }
+
+        //checks if word left the screen and if so calls functions to reset word to new word
+        private _checkBounds(): void {
+            //check if word has left the screen
+            if (this.x < 0) {
+                this._reset();
+            }
         }
 
 
@@ -68,14 +72,6 @@
             this.x = 848;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-        }
-
-        //checks if word left the screen and if so calls functions to reset word to new word
-        private _checkBounds(): void {
-            //check if word has left the screen
-            if (this.x < 0) {
-                this._reset();
-            }
         }
 
 

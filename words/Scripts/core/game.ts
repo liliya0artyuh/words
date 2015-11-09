@@ -11,7 +11,6 @@
 /// <reference path="../config/wordsets.ts" />
 /// <reference path="../config/config.ts" />
 /// <reference path="../managers/asset.ts" />
-/// <reference path="../objects/gameobject.ts" />
 
 /// <reference path="../objects/background.ts" />
 /// <reference path="../objects/word.ts" />
@@ -40,8 +39,9 @@ var menu: states.Menu;
 var game: states.Game;
 var over: states.Over;
 var name: string;
-var outcome: number;
+var outcome: number=0;
 var wordCategory: string;
+var background: objects.Background;
 
 
 //Game managers
@@ -63,7 +63,9 @@ function init(): void {
     stage.enableMouseOver(20); //enable mouse events
     createjs.Ticker.setFPS(60); // set frame rate to 60 frames per second
     createjs.Ticker.on("tick", gameLoop, this); // update gameLoop every frame
-        
+
+    background = new objects.Background("back");
+    stage.addChild(background);
     setupStats();// setup statistics object
 
     state = config.MENU_STATE;
@@ -73,6 +75,8 @@ function init(): void {
 // Main Game Loop
 function gameLoop(event: createjs.Event): void {
     stats.begin(); //begin measuring
+
+    background.update();
 
     currentState.update();
     stage.update(); // redraw/refresh stage every frame

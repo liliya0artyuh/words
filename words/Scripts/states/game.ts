@@ -3,7 +3,6 @@ module states {
     // menu class
     export class Game extends objects.Scene {
         // private instance variables
-        _background: objects.Background;
         _textLabel: objects.Label;
        _truck: objects.Truck;
         _word: objects.Word;
@@ -26,10 +25,7 @@ module states {
         //public methods
         public start(): void {
             this._determineCategories();
-
-
-            this._background = new objects.Background("back");
-            this.addChild(this._background);
+            this.addChild(background);
 
             //add truck to the game
             this._truck = new objects.Truck("truck");
@@ -47,8 +43,10 @@ module states {
                 //config.antagonistWords[this._antiWordItems[antiWord]]
             }
 
+
             //add all objects to the stage
             stage.addChild(this);
+
             scoreboard = new objects.Scoreboard;
             collision = new managers.Collision; 
         }
@@ -119,7 +117,6 @@ module states {
 
 
         public update(): void {
-            this._background.update();
             this._truck.update();
             this._word.update();
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
@@ -128,6 +125,14 @@ module states {
             }
             collision.check(this._word, this._truck);
             scoreboard.update();
+            if (scoreboard.lives <= 0) {
+                outcome = 2;
+                changeState(config.OVER_STATE);
+            }
+                if(scoreboard.score == 1000) {
+                    outcome = 1;
+                    changeState(config.OVER_STATE);
+            }
         }
     }
 }

@@ -11,7 +11,6 @@ var states;
         //constructor
         function Menu() {
             _super.call(this);
-            this._centerX = 424;
         }
         //private method
         //callback function that allows to respond to button click events
@@ -34,19 +33,17 @@ var states;
         };
         //public methods
         Menu.prototype.start = function () {
+            this.addChild(background);
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.loader.getResult("logo"));
-            this._logo.x = this._centerX; //place in the middle along x axis
+            this._logo.x = config.centerX; //place in the middle along x axis
             this._logo.y = 50;
             //set regX so image is centered along x axis
             this._logo.regX = 292 * 0.5;
             //add logo to game container
             this.addChild(this._logo);
-            //add label to ask if user wants to paly the game
-            this._introLabel = new objects.Label(" Do you want to play?", "40px Consolas", "#000000", this._centerX, 260, true);
-            this.addChild(this._introLabel);
             //instantiate and add a start button
-            this._startButton = new objects.Button("startButton", this._centerX, 340, true);
+            this._startButton = new objects.Button("startButton", config.centerX, 340, true);
             this.addChild(this._startButton);
             this._startButton.on("click", this._startClicked, this);
             //add this menu container to the stage
