@@ -9,7 +9,7 @@
 
         //CONSTRUCTOR --------------------------------------------------
         constructor(imageString: string) {
-            super(assets.getResult(imageString));
+            super(assets.loader.getResult(imageString));
               this.width = this.getBounds().width;
               this.height = this.getBounds().height;
               this.regX = this.width * 0.5;

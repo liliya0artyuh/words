@@ -10,7 +10,7 @@
 
         //CONSTRUCTOR --------------------------------------------------
         constructor(imageString: string) {
-            super(assets.getResult(imageString));
+            super(assets.loader.getResult(imageString));
           //  this.width = this.getBounds().width;
            // this.height = this.getBounds().height;
             this.x = 0;// start Background - x value

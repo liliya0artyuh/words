@@ -7,9 +7,11 @@
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../utility/utility.ts" />
 /// <reference path="../config/wordsets.ts" />
-/// <reference path="../functions/methods.ts" />
 /// <reference path="../config/config.ts" />
+/// <reference path="../managers/asset.ts" />
+/// <reference path="../objects/gameobject.ts" />
 
 /// <reference path="../objects/background.ts" />
 /// <reference path="../objects/word.ts" />
@@ -21,10 +23,10 @@
 /// <reference path="../states/menu.ts" />
 /// <reference path="../states/over.ts" />
 /// <reference path="../states/game.ts" />
+/// <reference path="../managers/collision.ts" />
 
 
 // Global Game Framework Variables
-var assets: createjs.LoadQueue;
 var canvas: HTMLElement;
 var stage: createjs.Stage;
 var stats: Stats;
@@ -41,25 +43,13 @@ var outcome: number;
 var wordCategory: string;
 
 
-//manifest of all of the assets
-var manifest= [
-    { id: "againButton", src: "../../Assets/images/againButton.png" },
-    { id: "back", src: "../../Assets/images/back_long.png" },
-    { id: "truck", src: "../../Assets/images/truck.png" },
-    { id: "emptyButton", src: "../../Assets/images/button183x82.png" },
-    { id: "startButton", src: "../../Assets/images/startButton.png" },
-    { id: "soundtrack", src: "../../Assets/audio/gameSound.m4a" },
-    { id: "logo", src: "../../Assets/images/logo.png" },
-    { id: "sound1", src: "../../Assets/audio/0831.wav" }
-];
+//Game managers
+var assets: managers.Asset;
+
 
 
 function preload(): void {
-    assets = new createjs.LoadQueue(true);
-    assets.installPlugin(createjs.Sound);
-    //event listener triggers when assets are completely loaded
-    assets.on("complete", init, this);
-    assets.loadManifest(manifest);
+    assets = new managers.Asset();
     (<HTMLInputElement>document.getElementById("txtName")).value = "";
     name = "";
 }

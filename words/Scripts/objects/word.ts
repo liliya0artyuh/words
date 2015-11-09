@@ -3,22 +3,27 @@
     export class Word extends createjs.Text {
 
         //PUBLIC PROPERTIES ----------------------------------------
-        _width: number;
-        _height: number;
+        width: number;
+        height: number;
         _dx: number = 1;
         //determines the next set of words
         _currentWordItem: number = 0;
         _antiWordItem: number = 0;
         _currentWord = true;
+        isColliding: boolean = false;
+        sound: string = "";
 
 
         //CONSTRUCTOR --------------------------------------------------
         constructor(curWord: boolean) {
             super("placeholder", "40px Consolas", "green");
+            //check if the word is enemy or hero
             if (curWord) {
-                this._currentWord = true;
+                this._currentWord = true;//hero
+                this.sound = "wellDone";
             } else {
-                this._currentWord = false;
+                this._currentWord = false;//enemy
+                this.sound = "oh";
             }
             this._reset();
         }
@@ -58,6 +63,8 @@
             this._dx = (Math.random() * (1.5 - 0.5 + 0.5) + 0.5);//sets random speed between 1 and 2
             this.y = Math.floor(Math.random() * 450);// start word at random location
             this.x = 848;
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
         }
 
         //checks if word left the screen and if so calls functions to reset word to new word

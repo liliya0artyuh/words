@@ -5,7 +5,7 @@
         height: number;
         //constructor
         constructor(pathString: string, x: number, y: number, centered: boolean) {
-            super(assets.getResult(pathString));
+            super(assets.loader.getResult(pathString));
 
             this.x = x;
             this.y = y;

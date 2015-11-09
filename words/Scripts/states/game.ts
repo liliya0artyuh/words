@@ -5,9 +5,12 @@ module states {
         // private instance variables
         _background: objects.Background;
         _textLabel: objects.Label;
-        _truck: objects.Truck;
+       _truck: objects.Truck;
         _word: objects.Word;
         _antiWords: objects.Word[] = [];
+        collision: managers.Collision;
+
+        scoreboard: objects.Scoreboard;
 
 
         _currentWord: string;
@@ -24,7 +27,6 @@ module states {
         constructor() {
             super();
         }
-
 
         //public methods
         public start(): void {
@@ -52,6 +54,7 @@ module states {
 
             //add all objects to the stage
             stage.addChild(this);
+            this.collision = new managers.Collision; 
         }
 
 
@@ -127,7 +130,9 @@ module states {
             this._word.update();
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
+                this.collision.check(this._antiWords[antiWord], this._truck);
             }
+            this.collision.check(this._word, this._truck);
         }
     }
 }
