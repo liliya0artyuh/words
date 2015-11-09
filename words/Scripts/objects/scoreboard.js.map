@@ -1,0 +1,1 @@
+{"version":3,"file":"scoreboard.js","sourceRoot":"","sources":["scoreboard.ts"],"names":["objects","objects.Scoreboard","objects.Scoreboard.constructor"],"mappings":"AAAA,IAAO,OAAO,CAIb;AAJD,WAAO,OAAO,EAAC,CAAC;IACZA;QAAAC;QAEAC,CAACA;QAADD,iBAACA;IAADA,CAACA,AAFDD,IAECA;IAFYA,kBAAUA,aAEtBA,CAAAA;AACLA,CAACA,EAJM,OAAO,KAAP,OAAO,QAIb"}
