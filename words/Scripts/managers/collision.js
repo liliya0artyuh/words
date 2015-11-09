@@ -19,6 +19,12 @@ var managers;
                     //encrease points
                     //add sound
                     createjs.Sound.play(gameObject.sound);
+                    if (gameObject.name == "hero") {
+                        scoreboard.score += 100;
+                    }
+                    if (gameObject.name == "enemy") {
+                        scoreboard.lives--;
+                    }
                 }
                 gameObject.isColliding = true;
             }

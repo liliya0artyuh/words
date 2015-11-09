@@ -33,7 +33,8 @@ var states;
             }
             //add all objects to the stage
             stage.addChild(this);
-            this.collision = new managers.Collision;
+            scoreboard = new objects.Scoreboard;
+            collision = new managers.Collision;
         };
         //private method
         /*
@@ -103,9 +104,10 @@ var states;
             this._word.update();
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
-                this.collision.check(this._antiWords[antiWord], this._truck);
+                collision.check(this._antiWords[antiWord], this._truck);
             }
-            this.collision.check(this._word, this._truck);
+            collision.check(this._word, this._truck);
+            scoreboard.update();
         };
         return Game;
     })(objects.Scene);

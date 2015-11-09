@@ -20,6 +20,7 @@
 /// <reference path="../states/menu.ts" />
 /// <reference path="../states/over.ts" />
 /// <reference path="../states/game.ts" />
+/// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 // Global Game Framework Variables
 var canvas;
@@ -36,6 +37,8 @@ var outcome;
 var wordCategory;
 //Game managers
 var assets;
+var collision;
+var scoreboard;
 function preload() {
     assets = new managers.Asset();
     document.getElementById("txtName").value = "";

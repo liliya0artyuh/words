@@ -8,11 +8,6 @@ module states {
        _truck: objects.Truck;
         _word: objects.Word;
         _antiWords: objects.Word[] = [];
-        collision: managers.Collision;
-
-        scoreboard: objects.Scoreboard;
-
-
         _currentWord: string;
         _wordOrder: number[] = [0];
         _category: string;
@@ -54,13 +49,12 @@ module states {
 
             //add all objects to the stage
             stage.addChild(this);
-            this.collision = new managers.Collision; 
+            scoreboard = new objects.Scoreboard;
+            collision = new managers.Collision; 
         }
 
 
         //private method
-
-
 
         /*
         private _checkIfExists(x: number): number {
@@ -130,9 +124,10 @@ module states {
             this._word.update();
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord].update();
-                this.collision.check(this._antiWords[antiWord], this._truck);
+                collision.check(this._antiWords[antiWord], this._truck);
             }
-            this.collision.check(this._word, this._truck);
+            collision.check(this._word, this._truck);
+            scoreboard.update();
         }
     }
 }

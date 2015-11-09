@@ -17,14 +17,17 @@ var objects;
             this._currentWord = true;
             this.isColliding = false;
             this.sound = "";
+            this.name = "";
             //check if the word is enemy or hero
             if (curWord) {
                 this._currentWord = true; //hero
                 this.sound = "wellDone";
+                this.name = "hero";
             }
             else {
                 this._currentWord = false; //enemy
                 this.sound = "oh";
+                this.name = "enemy";
             }
             this._reset();
         }

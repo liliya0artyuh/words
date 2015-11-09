@@ -12,6 +12,7 @@
         _currentWord = true;
         isColliding: boolean = false;
         sound: string = "";
+        public name: string = "";
 
 
         //CONSTRUCTOR --------------------------------------------------
@@ -21,9 +22,11 @@
             if (curWord) {
                 this._currentWord = true;//hero
                 this.sound = "wellDone";
+                this.name = "hero";
             } else {
                 this._currentWord = false;//enemy
                 this.sound = "oh";
+                this.name = "enemy";
             }
             this._reset();
         }

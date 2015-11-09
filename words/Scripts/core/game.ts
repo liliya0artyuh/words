@@ -23,6 +23,7 @@
 /// <reference path="../states/menu.ts" />
 /// <reference path="../states/over.ts" />
 /// <reference path="../states/game.ts" />
+/// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 
 
@@ -45,7 +46,8 @@ var wordCategory: string;
 
 //Game managers
 var assets: managers.Asset;
-
+var collision: managers.Collision;
+ var scoreboard: objects.Scoreboard;
 
 
 function preload(): void {
