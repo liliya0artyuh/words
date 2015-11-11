@@ -34,16 +34,29 @@ var states;
         //public methods
         Menu.prototype.start = function () {
             this.addChild(background);
+            //add instruction container
+            this._instructionsContainer = new createjs.Container;
+            this._instructionsContainer.x = 100;
+            this._instructionsContainer.y = 100;
+            this._rulesButton = new objects.Button("startButton", config.centerX, 340, true);
+            this._rulesButton.x = 200;
+            this._rulesButton.y = 200;
+            this.addChild(this._rulesButton);
+            this._aboutButton = new objects.Button("startButton", config.centerX, 340, true);
+            this._aboutButton.x = 440;
+            this._aboutButton.y = 200;
+            this.addChild(this._aboutButton);
+            this.addChild(this._instructionsContainer);
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.loader.getResult("logo"));
             this._logo.x = config.centerX; //place in the middle along x axis
-            this._logo.y = 50;
+            this._logo.y = 30;
             //set regX so image is centered along x axis
             this._logo.regX = 292 * 0.5;
             //add logo to game container
             this.addChild(this._logo);
             //instantiate and add a start button
-            this._startButton = new objects.Button("startButton", config.centerX, 340, true);
+            this._startButton = new objects.Button("startButton", config.centerX, 420, true);
             this.addChild(this._startButton);
             this._startButton.on("click", this._startClicked, this);
             //add this menu container to the stage

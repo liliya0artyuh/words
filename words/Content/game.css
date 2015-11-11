@@ -24,6 +24,12 @@ canvas {
     position: relative;
 }
 
+#instructions {
+padding: 50px;
+background-color: darkseagreen;
+border: solid 1px #000000;
+display: none;
+}
 
 #txtName {
     position: absolute;

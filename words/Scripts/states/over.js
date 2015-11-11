@@ -33,14 +33,14 @@ var states;
                 this._outcomeText = "Well Done! You have collected all the words from the selected category";
             }
             if (outcome == 2) {
-                this._outcomeText = "Good try! Strudy the words and play the game again.";
+                this._outcomeText = "Good try! Study the words and play the game again.";
             }
-            this._outcomeLabel = new objects.Label(this._outcomeText, "18px Consolas", "#000000", config.centerX, 180, true);
+            this._outcomeLabel = new objects.Label(this._outcomeText, "18px Consolas", "#ffffff", config.centerX, 220, true);
             this.addChild(this._outcomeLabel);
-            this._endLabel = new objects.Label("The End", "30px Consolas", "#000000", config.centerX, 280, true);
+            this._endLabel = new objects.Label("The End", "30px Consolas", "#ffffff", config.centerX, 260, true);
             this.addChild(this._endLabel);
             //instantiate and add a start button
-            this._againButton = new objects.Button("againButton", config.centerX, 340, true);
+            this._againButton = new objects.Button("againButton", config.centerX, 360, true);
             this.addChild(this._againButton);
             this._againButton.on("click", this._buttonClicked, this);
             stage.addChild(this);
