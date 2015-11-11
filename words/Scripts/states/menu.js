@@ -56,11 +56,11 @@ var states;
         Menu.prototype.start = function () {
             this.addChild(background);
             //add buttons for about and rules
-            this._rulesButton = new objects.Button("startButton", 200, 100, false);
+            this._rulesButton = new objects.Button("rulesButton", 200, 150, false);
             this._rulesButton.name = "rulesBtn";
             this._rulesButton.on("click", this._menuClicked, this);
             this.addChild(this._rulesButton);
-            this._aboutButton = new objects.Button("startButton", 440, 100, false);
+            this._aboutButton = new objects.Button("aboutButton", 440, 150, false);
             this._aboutButton.name = "aboutBtn";
             this._aboutButton.on("click", this._menuClicked, this);
             this.addChild(this._aboutButton);

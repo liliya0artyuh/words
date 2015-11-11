@@ -29,13 +29,15 @@ var states;
             this._logo.y = 30;
             this.addChild(this._logo);
             if (outcome == 1) {
-                this._outcomeText = "Well Done! You have collected all the words from the selected category";
+                this._outcomeText = "Well Done! You have collected 10 words from the selected category";
             }
             if (outcome == 2) {
                 this._outcomeText = "Good try! Study the words and play the game again.";
             }
-            this._outcomeLabel = new objects.Label(this._outcomeText, "18px Consolas", "#ffffff", config.centerX, 220, true);
+            this._outcomeLabel = new objects.Label(this._outcomeText, "18px Consolas", "#ffffff", config.centerX, 140, true);
             this.addChild(this._outcomeLabel);
+            this._finalScore = new objects.Label("collected words: " + numOfCollectedWords + "\n\n lost lives: " + numOfLivesLost, "20px Consolas", "#FFF000", config.centerX, 200, true);
+            this.addChild(this._finalScore);
             this._endLabel = new objects.Label("The End", "30px Consolas", "#ffffff", config.centerX, 260, true);
             this.addChild(this._endLabel);
             //instantiate and add a start button

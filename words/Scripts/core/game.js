@@ -35,6 +35,8 @@ var name;
 var outcome = 0;
 var wordCategory;
 var background;
+var numOfCollectedWords;
+var numOfLivesLost;
 //Game managers
 var assets;
 var collision;

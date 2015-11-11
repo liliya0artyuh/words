@@ -27,20 +27,18 @@ module states {
             this._determineCategories();
             this.addChild(background);
 
-            //add truck to the game
+            //add truck/collector to the game
             this._truck = new objects.Truck("truck");
             this.addChild(this._truck);
 
-            //add words
+            //add selected category words
             this._word = new objects.Word(true);// collectibe word
             this.addChild(this._word);
-            //config.currentCategory[this._currentWordItem]
 
-            //add words
+            //add enemy words
             for (var antiWord = 0; antiWord < config.numOfAntiWords; antiWord++) {
                 this._antiWords[antiWord] = new objects.Word(false);// antogonist words
                 this.addChild(this._antiWords[antiWord]);
-                //config.antagonistWords[this._antiWordItems[antiWord]]
             }
 
 
@@ -127,10 +125,14 @@ module states {
             scoreboard.update();
             if (scoreboard.lives <= 0) {
                 outcome = 2;
+                numOfCollectedWords = scoreboard.score / 100;
+                numOfLivesLost = 3;
                 changeState(config.OVER_STATE);
             }
                 if(scoreboard.score == 1000) {
                     outcome = 1;
+                    numOfCollectedWords = 10;
+                    numOfLivesLost = 3 - scoreboard.lives;
                     changeState(config.OVER_STATE);
             }
         }

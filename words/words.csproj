@@ -69,12 +69,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\audio\oh.m4a" />
+    <Content Include="Assets\audio\oh.wav" />
     <Content Include="Assets\audio\wellDone.m4a" />
+    <Content Include="Assets\images\about.png" />
     <Content Include="Assets\images\againButton.png" />
     <Content Include="Assets\images\back1.PNG" />
     <Content Include="Assets\images\back_long.png" />
     <Content Include="Assets\images\button183x82.png" />
     <Content Include="Assets\images\logo.PNG" />
+    <Content Include="Assets\images\rules.png" />
     <Content Include="Assets\images\saveButton.png" />
     <Content Include="Assets\images\startButton.PNG" />
     <Content Include="Assets\images\truck.PNG" />

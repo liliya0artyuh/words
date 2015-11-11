@@ -42,6 +42,8 @@ var name: string;
 var outcome: number=0;
 var wordCategory: string;
 var background: objects.Background;
+var numOfCollectedWords: number;
+var numOfLivesLost: number;
 
 
 //Game managers

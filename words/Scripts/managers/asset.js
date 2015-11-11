@@ -11,9 +11,11 @@ var managers;
                 { id: "truck", src: "../../Assets/images/truck.png" },
                 { id: "emptyButton", src: "../../Assets/images/button183x82.png" },
                 { id: "startButton", src: "../../Assets/images/startButton.png" },
+                { id: "aboutButton", src: "../../Assets/images/about.png" },
+                { id: "rulesButton", src: "../../Assets/images/rules.png" },
                 { id: "logo", src: "../../Assets/images/logo.png" },
                 { id: "wellDone", src: "../../Assets/audio/wellDone.m4a" },
-                { id: "oh", src: "../../Assets/audio/oh.m4a" }
+                { id: "oh", src: "../../Assets/audio/oh.wav" }
             ];
             this.preload();
         }
