@@ -20,7 +20,7 @@ var managers;
                 { id: "aboutButton", src: "../../Assets/images/about.png" },
                 { id: "rulesButton", src: "../../Assets/images/rules.png" },
                 { id: "logo", src: "../../Assets/images/logo.png" },
-                { id: "wellDone", src: "../../Assets/audio/wellDone.m4a" },
+                { id: "wellDone", src: "../../Assets/audio/wellDone.wav" },
                 { id: "oh", src: "../../Assets/audio/oh.wav" }
             ];
             this.preload();
@@ -36,3 +36,4 @@ var managers;
     })();
     managers.Asset = Asset;
 })(managers || (managers = {}));
+//# sourceMappingURL=asset.js.map

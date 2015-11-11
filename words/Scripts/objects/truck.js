@@ -42,3 +42,4 @@ var objects;
     })(createjs.Bitmap);
     objects.Truck = Truck;
 })(objects || (objects = {}));
+//# sourceMappingURL=truck.js.map

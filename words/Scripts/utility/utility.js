@@ -6,3 +6,4 @@ var utility;
     }
     utility.distance = distance;
 })(utility || (utility = {}));
+//# sourceMappingURL=utility.js.map

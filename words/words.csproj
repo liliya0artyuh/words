@@ -71,6 +71,7 @@
     <Content Include="Assets\audio\oh.m4a" />
     <Content Include="Assets\audio\oh.wav" />
     <Content Include="Assets\audio\wellDone.m4a" />
+    <Content Include="Assets\audio\wellDone.wav" />
     <Content Include="Assets\images\about.png" />
     <Content Include="Assets\images\againButton.png" />
     <Content Include="Assets\images\back1.PNG" />

@@ -13,3 +13,4 @@ var config;
     config.numOfAntiWords = 3;
     config.centerX = 424;
 })(config || (config = {}));
+//# sourceMappingURL=config.js.map

@@ -14,3 +14,4 @@ var config;
     config.currentCategory = [];
     config.antagonistWords = [];
 })(config || (config = {}));
+//# sourceMappingURL=wordSets.js.map
