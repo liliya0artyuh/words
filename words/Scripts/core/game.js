@@ -1,3 +1,9 @@
+//    <!--Repository Name for source code on github: words-- >
+//    <!--Description: A game that allows to users practise with memorising English words in different categories in a fun manner -- >
+//    <!--Author Name: Liliya Artyukh -- >
+//    <!--Creation Date: 06 - Nov - 2015 -- >
+//    <!--Last Modified Date: 12 - Nov - 2015 -- >
+//    <!--Last Modified by: Liliya Artyukh -- >
 /// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/stats/stats.d.ts" />
 /// <reference path="../typings/createjs-lib/createjs-lib.d.ts" />
@@ -102,4 +108,3 @@ function changeState(state) {
     currentState.start();
     console.log(currentState.numChildren);
 }
-//# sourceMappingURL=game.js.map

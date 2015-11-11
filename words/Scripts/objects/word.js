@@ -1,3 +1,9 @@
+//<!--Repository Name for source code on github: words-- >
+//<!--Description: A game that allows to users practise with memorising English words in different categories in a fun manner -- >
+//<!--Author Name: Liliya Artyukh -- >
+//<!--Creation Date: 06 - Nov - 2015 -- >
+//<!--Last Modified Date: 12 - Nov - 2015 -- >
+//<!--Last Modified by: Liliya Artyukh -- >
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -75,4 +81,3 @@ var objects;
     })(createjs.Text);
     objects.Word = Word;
 })(objects || (objects = {}));
-//# sourceMappingURL=word.js.map
