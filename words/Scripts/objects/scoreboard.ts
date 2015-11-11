@@ -6,27 +6,23 @@
         lives: number = 3;
 
         //PRIVATE PROPERTIES
-        private _scoreLabel: createjs.Text;
-        private _livesLable: createjs.Text;
+        private _scoreLabel: objects.Label;
+        private _livesLabel: objects.Label;
 
         //CONSTRUCTOR++++++++++++++++++++++++++++++++++
         constructor() {
 
-            this._scoreLabel = new createjs.Text("Score: ", "40px Consolas", "#FFF000");
-            this._scoreLabel.x = 10;
-            this._scoreLabel.y = 10;
+            this._scoreLabel = new objects.Label("Score: ", "40px Consolas", "#FFF000", 10, 10, false);
             stage.addChild(this._scoreLabel);
 
-            this._livesLable = new createjs.Text("Score: ", "40px Consolas", "#FFF000");
-            this._scoreLabel.x = 300;
-            this._scoreLabel.y = 10;
-            stage.addChild(this._livesLable);
+            this._livesLabel = new objects.Label("Lives: ", "40px Consolas", "#FFF000", 300, 10, false);
+            stage.addChild(this._livesLabel);
         }
 
 
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
         public update() {
-            this._livesLable.text = "Lives: " + this.lives;
+            this._livesLabel.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;
         }
 

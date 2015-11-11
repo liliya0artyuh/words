@@ -24,10 +24,9 @@ var states;
             scoreboard.reset();
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.loader.getResult("logo"));
-            this._logo.regX = 155;
-            this._logo.regY = 101;
-            this._logo.x = 440;
-            this._logo.y = 140;
+            this._logo.regX = this._logo.getBounds().width * 0.5;
+            this._logo.x = config.centerX;
+            this._logo.y = 30;
             this.addChild(this._logo);
             if (outcome == 1) {
                 this._outcomeText = "Well Done! You have collected all the words from the selected category";

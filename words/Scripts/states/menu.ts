@@ -17,8 +17,13 @@ module states {
         _clothesLabel: objects.Label;
         _animalsLabel: objects.Label;
         _instructionsContainer: createjs.Container;
+        _instructionsLable: objects.Label;
         _rulesButton: objects.Button;
         _aboutButton: objects.Button;
+        _rect: createjs.Shape;
+        _instructionsVisible: boolean = false;
+        _aboutText: string = "This game is designed to help people learn English words in a fun way. \n\nThe goal of the game is to collect 10 words from selected category.";
+        _rulesText: string = "1. Select word category to practise. \n\n2. Move mouse up and down to control collector rectangle. \n\n3. Collect 10 words from selected category to win. \n\n4. Collecting 3 wrong words lead to a loss.";
 
         //constructor
         constructor() {
@@ -26,12 +31,29 @@ module states {
         }
 
         //private method
-        //callback function that allows to respond to button click events
+        //callback function that allows to respond to start button click events
         private _startClicked(event: createjs.MouseEvent): void {
             console.log("event.target " + event.target);
             createjs.Sound.play("soundtrack");
             this.removeAllChildren();
             this._getDetails();
+        }
+
+        //callback function that allows to respond to button click events
+        private _menuClicked(event: createjs.MouseEvent): void {
+            //check if lable is already displayed
+            if (this._instructionsContainer.visible == true) {
+                this._instructionsContainer.visible = false;
+            } else {
+                this._instructionsContainer.visible = true;
+            }
+            //check which button was clicked
+            console.log("event.target.name " + event.target.name);
+            if (event.target.name == "aboutBtn") {
+                this._instructionsLable.text = this._aboutText;
+            } else if (event.target.name == "rulesBtn"){
+                this._instructionsLable.text = this._rulesText;
+            }
         }
 
         private _categoryClicked(event: createjs.MouseEvent): void {
@@ -51,27 +73,34 @@ module states {
         public start(): void {
             this.addChild(background);
 
-            //add instruction container
-
-            this._instructionsContainer = new createjs.Container;
-            this._instructionsContainer.x = 100;
-            this._instructionsContainer.y = 100;
-            this._rulesButton = new objects.Button("startButton", config.centerX, 340, true);
-            this._rulesButton.x = 200;
-            this._rulesButton.y = 200;
+            //add buttons for about and rules
+            this._rulesButton = new objects.Button("startButton", 200, 100, false);
+            this._rulesButton.name = "rulesBtn";
+            this._rulesButton.on("click", this._menuClicked, this);
             this.addChild(this._rulesButton);
-            this._aboutButton = new objects.Button("startButton", config.centerX, 340, true);
-            this._aboutButton.x = 440;
-            this._aboutButton.y = 200;
+            this._aboutButton = new objects.Button("startButton", 440, 100, false);
+            this._aboutButton.name = "aboutBtn";
+            this._aboutButton.on("click", this._menuClicked, this);
             this.addChild(this._aboutButton);
+
+            //add instruction container
+            this._instructionsContainer = new createjs.Container;
+            this._instructionsContainer.x = 24;
+            this._instructionsContainer.y = 200;
+            this._rect = new createjs.Shape;
+            this._rect.graphics.beginFill("red").drawRect(0, 0, 800, 150);
+            this._instructionsContainer.addChild(this._rect);
+            this._instructionsLable = new objects.Label("placeholder text", "20px Consolas", "#000000", 20, 20, false);
+            this._instructionsContainer.addChild(this._instructionsLable);
             this.addChild(this._instructionsContainer);
+            this._instructionsContainer.visible = false;
 
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.loader.getResult("logo"));
             this._logo.x = config.centerX;//place in the middle along x axis
             this._logo.y = 30;
             //set regX so image is centered along x axis
-            this._logo.regX = 292 * 0.5;
+            this._logo.regX = this._logo.getBounds().width * 0.5;
             //add logo to game container
             this.addChild(this._logo);
 
