@@ -136,4 +136,3 @@ var states;
     })(objects.Scene);
     states.Menu = Menu;
 })(states || (states = {}));
-//# sourceMappingURL=menu.js.map

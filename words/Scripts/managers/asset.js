@@ -36,4 +36,3 @@ var managers;
     })();
     managers.Asset = Asset;
 })(managers || (managers = {}));
-//# sourceMappingURL=asset.js.map

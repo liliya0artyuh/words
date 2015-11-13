@@ -81,4 +81,3 @@ var objects;
     })(createjs.Text);
     objects.Word = Word;
 })(objects || (objects = {}));
-//# sourceMappingURL=word.js.map

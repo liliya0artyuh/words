@@ -16,4 +16,3 @@ var config;
     config.collectorHeight = 103;
     config.wordHeight = 40;
 })(config || (config = {}));
-//# sourceMappingURL=config.js.map
