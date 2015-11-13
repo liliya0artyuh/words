@@ -76,7 +76,7 @@ module objects {
                 //   }
             }
             this._dx = (Math.random() * (1.5 - 0.5 + 0.5) + 0.5);//sets random speed between 1 and 2
-            this.y = Math.floor(Math.random() * 450);// start word at random location
+            this.y = Math.floor(Math.random() * (450 - 50 + 50) + 50);// start word at random location
             this.x = 848;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;

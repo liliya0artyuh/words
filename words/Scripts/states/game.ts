@@ -19,6 +19,17 @@ module states {
         _numExists: boolean;
         _currentCategory: string[];
         _antagonistWords: string[];
+        _line1: createjs.Shape;
+        _line2: createjs.Shape;
+        _line3: createjs.Shape;
+        _line4: createjs.Shape;
+        _line5: createjs.Shape;
+        _line6: createjs.Shape;
+        _line7: createjs.Shape;
+        _line8: createjs.Shape;
+        _line9: createjs.Shape;
+        _line10: createjs.Shape;
+
 
 
 
@@ -32,6 +43,36 @@ module states {
         public start(): void {
             this._determineCategories();
             this.addChild(background);
+            this._line1 = new createjs.Shape;
+            this._line1.graphics.beginStroke("red").beginFill("red").drawRect(50, 50, 700, 1);
+            this.addChild(this._line1);
+            this._line2 = new createjs.Shape;
+            this._line2.graphics.beginStroke("red").beginFill("red").drawRect(50, 100, 700, 1);
+            this.addChild(this._line2);
+            this._line3 = new createjs.Shape;
+            this._line3.graphics.beginStroke("red").beginFill("red").drawRect(50, 150, 700, 1);
+            this.addChild(this._line3);
+            this._line4 = new createjs.Shape;
+            this._line4.graphics.beginStroke("red").beginFill("red").drawRect(50, 200, 700, 1);
+            this.addChild(this._line4);
+            this._line5 = new createjs.Shape;
+            this._line5.graphics.beginStroke("red").beginFill("red").drawRect(50, 250, 700, 1);
+            this.addChild(this._line5);
+            this._line6 = new createjs.Shape;
+            this._line6.graphics.beginStroke("red").beginFill("red").drawRect(50, 300, 700, 1);
+            this.addChild(this._line6);
+            this._line7 = new createjs.Shape;
+            this._line7.graphics.beginStroke("red").beginFill("red").drawRect(50, 350, 700, 1);
+            this.addChild(this._line7);
+            this._line8 = new createjs.Shape;
+            this._line8.graphics.beginStroke("red").beginFill("red").drawRect(50, 400, 700, 1);
+            this.addChild(this._line8);
+            this._line9 = new createjs.Shape;
+            this._line9.graphics.beginStroke("red").beginFill("red").drawRect(50, 450, 700, 1);
+            this.addChild(this._line9);
+            this._line10 = new createjs.Shape;
+            this._line10.graphics.beginStroke("red").beginFill("red").drawRect(50, 500, 700, 1);
+            this.addChild(this._line10);
 
             //add truck/collector to the game
             this._truck = new objects.Truck("truck");

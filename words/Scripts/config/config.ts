@@ -13,4 +13,7 @@ module config {
     export var OVER_STATE: number = 2;
     export var numOfAntiWords: number = 3;
     export var centerX: number = 424;
+    export var collectorWidth: number = 227;
+    export var collectorHeight: number = 103;
+    export var wordHeight: number = 40;
 }

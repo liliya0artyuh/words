@@ -104,10 +104,12 @@ module states {
 
             //instantiate and add a logo
             this._logo = new createjs.Bitmap(assets.loader.getResult("logo"));
-            this._logo.x = config.centerX;//place in the middle along x axis
+            
+           // this._logo.regX = this._logo.getBounds().width * 0.5;
+            this._logo.x = config.centerX - (146 * 0.5);//place in the middle along x axis
             this._logo.y = 30;
             //set regX so image is centered along x axis
-            this._logo.regX = this._logo.getBounds().width * 0.5;
+
             //add logo to game container
             this.addChild(this._logo);
 

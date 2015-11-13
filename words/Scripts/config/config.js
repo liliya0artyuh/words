@@ -12,5 +12,8 @@ var config;
     config.OVER_STATE = 2;
     config.numOfAntiWords = 3;
     config.centerX = 424;
+    config.collectorWidth = 227;
+    config.collectorHeight = 103;
+    config.wordHeight = 40;
 })(config || (config = {}));
 //# sourceMappingURL=config.js.map
